@@ -37,11 +37,11 @@
         <tbody>
           <ng-container *ngIf="productList.length > 0">
             <tr *ngFor="let product of productList">
-              <th>{{ product.imageUrl }}</th>
+              <th><a href="https://{{ product.imageUrl }}" target="_blank">{{ product.imageUrl }}</a></th>
               <th>{{ product.code }}</th>
-              <th>{{ product.name }}</th>
-              <th>{{ product.price | number:'1.2-2' }}</th>
-              <th>{{ product.available }}</th>
+              <th>{{ product.name | nameFilter}}</th>
+              <th>{{ product.price | number:'1.2' }}</th>
+              <th><a [ngStyle]="{'color': product.available? 'green':'red'}"></a>{{ product.available }}</th>
               <th>{{ product.rating }}</th>
             </tr>
           </ng-container>
