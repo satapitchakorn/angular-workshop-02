@@ -9,7 +9,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NameFilterPipe } from './pipes/name-filter.pipe';
 import { ProductFilterPipe } from './pipes/product-filter.pipe';
+import { TopNavComponent } from './layout/top-nav/top-nav.component';
+import { FooterComponent } from './layout/footer/footer.component';
 
+import { NgxLoadingModule } from 'ngx-loading';
 
 @NgModule({
   declarations: [
@@ -17,14 +20,18 @@ import { ProductFilterPipe } from './pipes/product-filter.pipe';
     LoginComponent,
     ProductListComponent,
     NameFilterPipe,
-    ProductFilterPipe
+    ProductFilterPipe,
+    TopNavComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
+    NgxLoadingModule.forRoot({})
   ],
   providers: [],
   bootstrap: [AppComponent]

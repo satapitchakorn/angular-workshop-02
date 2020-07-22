@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../models/product';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-product-list',
@@ -8,20 +9,35 @@ import { Product } from '../../models/product';
 })
 export class ProductListComponent implements OnInit {
 
+  isLoading = false;
   productList: Product[] = [];
   name: string = '';
-  constructor() { }
+  constructor(private api: ProductService) { }
 
   ngOnInit(): void {
-    this.generate();
+    this.getProduct();
   }
-  generate(): void {
-    const p1 = new Product('C01', 'Product     01', 'www.google.com', 10.0, '*', true);
-    const p2 = new Product('C02', 'Product 02', 'www.google.com', 10.750, '**', true);
-    const p3 = new Product('C03', 'Product 03', 'www.google.com', 10001.0, '***', true);
-    const p4 = new Product('C04', 'Product 04', 'www.google.com', 10.0, '****', true);
-    const p5 = new Product('C05', 'Product 05', 'www.google.com', 10.0, '*****', false);
+  async getProduct(): Promise<void> {
+    this.isLoading = true;
+    const res = await this.api.getProduct();
+    try {
+      if (res.status === 200) {
+        this.productList = res.parsedBody;
+      }
+    } catch (error) {
 
-    this.productList.push(p1, p2, p3, p4, p5);
+    } finally {
+      this.isLoading = false;
+    }
+
+  }
+
+  openWindows(link: string): void {
+    const w = 600;
+    const h = 400;
+    const left = Number((screen.width / 2) - (w / 2));
+    const tops = Number((screen.height / 2) - (h / 2));
+    window.open(link, 'show', 'resizable = no, width = ' + w + ', height = ' + h + ', top = ' + tops + ', left = '
+      + left);
   }
 }

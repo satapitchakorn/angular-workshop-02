@@ -15,13 +15,17 @@
       </div>
     </div>
     <div class="table-responsive">
-      <table class="table">
+      <table class="table fixed">
+        <col width=16.67% />
+        <col width=16.67% />
+        <col width=16.67% />
+        <col width=16.67% />
+        <col width=16.67% />
+        <col width=16.67% />
         <thead>
           <tr>
             <th>
-              <button class="btn btn-primary">
-                Product Image
-              </button>
+              Product Image
             </th>
             <th>Product Code</th>
             <th>Product Name</th>
@@ -33,19 +37,23 @@
         <tbody>
           <ng-container *ngIf="productList.length > 0">
             <tr *ngFor="let product of productList | productFilter:name">
-              <th><a href="https://{{ product.imageUrl }}" target="_blank">{{ product.imageUrl }}</a></th>
-              <th>{{ product.code }}</th>
-              <th>{{ product.name | nameFilter}}</th>
-              <th>{{ product.price | number:'1.2' }}</th>
-              <th><a [ngStyle]="{'color': product.available? 'green':'red'}">{{ product.available }}</a></th>
-              <th>{{ product.rating }}</th>
+              <td>
+                <button class="btn btn-primary" (click)="openWindows(product.imageUrl);">View</button>
+              </td>
+              <td>{{ product.code }}</td>
+              <td>{{ product.name | nameFilter}}</td>
+              <td>{{ product.price | number:'1.2' }}</td>
+              <td><a [ngStyle]="{'color': product.available? 'green':'red'}">{{ product.available }}</a></td>
+              <td>{{ product.rating }}</td>
             </tr>
           </ng-container>
         </tbody>
       </table>
-      <h4 *ngIf="productList.length == 0" style="text-align: center;">
+      <h4 *ngIf="(productList | productFilter:name).length == 0" style="text-align: center;">
         ไม่พบสินค้า
       </h4>
     </div>
   </div>
 </div>
+<ngx-loading [show]="isLoading" [config]="{ backdropBorderRadius: '3px' }">
+</ngx-loading>

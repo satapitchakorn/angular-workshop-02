@@ -1,15 +1,7 @@
-<nav>
-  <ul>
-    <li>
-      <a [routerLink]="['/login']" >Login</a>
-    </li>
-    <li>
-      <a [routerLink]="['/list']" >Product list</a>
-    </li>
-  </ul>
-</nav>
-
-
-<div class="container">
-  <router-outlet></router-outlet>
+<div class="wrapper">
+  <app-top-nav></app-top-nav>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+  <app-footer></app-footer>
 </div>
