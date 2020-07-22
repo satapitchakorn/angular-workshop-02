@@ -13,8 +13,15 @@ export class ProductApiService {
   url = environment.apiURL;
 
   constructor(private http: HttpClient, private api: AuthenticationService) { }
+
   getAllProduct(): Observable<Product[]> {
     return this.http.get<Product[]>(this.url + '/product/products', {
+      headers: { Authorization: this.api.getToken }
+    });
+  }
+
+  getDetail(id: number): Observable<Product> {
+    return this.http.get<Product>(this.url + '/product/' + id, {
       headers: { Authorization: this.api.getToken }
     });
   }

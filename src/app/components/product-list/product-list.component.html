@@ -40,10 +40,12 @@
               <td>
                 <button class="btn btn-primary" (click)="openWindows(product.imageUrl);">View</button>
               </td>
-              <td>{{ product.code }}</td>
+              <td [routerLink]="['/list',product.id]" [state]="{data:product}" class="click">{{ product.code }}</td>
               <td>{{ product.name | nameFilter}}</td>
               <td>{{ product.price | number:'1.2' }}</td>
-              <td><a [ngStyle]="{'color': product.available? 'green':'red'}">{{ product.available }}</a></td>
+              <td><a
+                  [ngStyle]="{'color': product.available? 'green':'red'}">{{ product.available?'Available':'Out of stock' }}</a>
+              </td>
               <td>
                 <app-rating [rating]="product.rating" (ratingClicked)="onRatingClicked($event);"></app-rating>
               </td>

@@ -3,6 +3,7 @@ import { Product } from '../../models/product';
 import { ProductService } from '../../services/product.service';
 import { ProductApiService } from '../../services/product-api.service';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
@@ -14,7 +15,7 @@ export class ProductListComponent implements OnInit {
   isLoading = false;
   productList: Product[] = [];
   name = '';
-  constructor(private api: ProductService, private productApi: ProductApiService) { }
+  constructor(private api: ProductService, private productApi: ProductApiService, private router: Router) { }
 
   ngOnInit(): void {
     this.getProduct();
@@ -52,5 +53,8 @@ export class ProductListComponent implements OnInit {
       text: message,
       icon: 'success'
     });
+  }
+  navi(): void {
+    this.router.navigateByUrl('/path');
   }
 }

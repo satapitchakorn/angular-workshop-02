@@ -5,3 +5,6 @@ table.fixed {
   table.fixed td {
     overflow: hidden;
   }
+.click:hover{
+    cursor: pointer;
+  }

@@ -15,6 +15,7 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { NgxLoadingModule } from 'ngx-loading';
 import { RatingComponent } from './components/rating/rating.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
     ProductFilterPipe,
     TopNavComponent,
     FooterComponent,
-    RatingComponent
+    RatingComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,
