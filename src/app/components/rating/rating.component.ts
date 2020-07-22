@@ -9,9 +9,15 @@ export class RatingComponent implements OnChanges {
   @Input() rating: number;
   @Output() ratingClicked: EventEmitter<string> = new EventEmitter<string>();
   starWidth: number;
+  starHalf = false
   constructor() { }
   ngOnChanges(): void {
-    this.starWidth = (75 / 5) * this.rating;
+    if (this.rating % 0.5 !== 0) {
+      this.starHalf = true;
+      this.starWidth = (75 / 5) * this.rating - 1;
+    } else {
+      this.starWidth = (75 / 5) * this.rating;
+    }
   }
   onClickRating(): void {
     this.ratingClicked.emit('Rating ' + this.rating + ' was clicked.');

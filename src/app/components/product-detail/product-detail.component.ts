@@ -13,11 +13,15 @@ export class ProductDetailComponent implements OnInit {
   productDetail: Product;
   constructor(
     private route: ActivatedRoute, private api: ProductApiService, private router: Router) {
-    if (this.router.getCurrentNavigation().extras.state) { this.productDetail = this.router.getCurrentNavigation().extras.state.data; }
+    if (this.router.getCurrentNavigation().extras.state) {
+      this.productDetail = this.router.getCurrentNavigation().extras.state.data;
+    }
+    console.log(this.productDetail);
+    
   }
 
   ngOnInit(): void {
-    if (this.productDetail) {
+    if (!this.productDetail) {
       this.id = Number(this.route.snapshot.paramMap.get('id'));
       this.getDetailProduct();
     }

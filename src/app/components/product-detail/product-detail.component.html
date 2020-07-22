@@ -1,8 +1,65 @@
+<ul class="breadcrumb">
+    <li class="breadcrumb-item"><a [routerLink]="[ '/']">Home</a></li>
+    <li class="breadcrumb-item"><a [routerLink]="[ '/list']">Product list</a></li>
+    <li class="breadcrumb-item active">Product detail</li>
+</ul>
 <div class="card">
     <div class="card-header">
-        {{productDetail.name}}
+        Product detail
     </div>
     <div class="card-body">
+        <div align="center" style="border: 50px; border-color: black;">
+            <img src="https://th-live-01.slatic.net/original/795870113fb003d6e781310596480060.jpg" width="300em"
+                height="300em" [ngClass]="{'imgWB': !productDetail.available}" style="border: 1px solid #555;">
 
+        </div>
+        <!-- <div align='center'>
+            <i class="fa fa-circle" aria-hidden="true" style="color: gray; font-size: 10px; width: 12px;"></i>
+            <i class="fa fa-circle" aria-hidden="true" style="color: gray; font-size: 10px; width: 12px;"></i>
+            <i class="fa fa-circle" aria-hidden="true" style="color: gray; font-size: 10px; width: 12px;"></i>
+        </div> -->
+        <br />
+        <div class="row">
+            <div class="col-sm-5"></div>
+            <div class="col-sm-1">
+                <label>Code: </label>
+            </div>
+            <div class="col-sm-5">
+                {{productDetail.code}}
+            </div>
+            <div class="col-sm-5"></div>
+            <div class="col-sm-1">
+                <label>Name: </label>
+            </div>
+            <div class="col-sm-5">
+                {{productDetail.name}}
+            </div>
+            <div class="col-sm-5"></div>
+            <div class="col-sm-1">
+                <label>Price: </label>
+            </div>
+            <div class="col-sm-5">
+                {{productDetail.price | currency:'THB'}}
+            </div>
+            <div class="col-sm-5"></div>
+            <div class="col-sm-1">
+                <label>Rating: </label>
+            </div>
+            <div class="col-sm-5">
+                <app-rating [rating]=" productDetail.rating"></app-rating>
+            </div>
+            <div class="col-sm-5"></div>
+            <div class="col-sm-1">
+                <label>Available: </label>
+            </div>
+            <div class="col-sm-5">
+                <a
+                    [ngStyle]="{'color': productDetail.available? 'green':'red'}">{{ productDetail.available?'Available':'Out of stock' }}</a>
+            </div>
+        </div>
+        <div align="center">
+            <button class="btn btn-success" [disabled]='!productDetail.available'><i class="fa fa-cart-plus"> Add to
+                    cart</i></button>
+        </div>
     </div>
 </div>

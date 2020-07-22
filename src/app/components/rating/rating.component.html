@@ -1,9 +1,12 @@
-<div [style.width.px]="starWidth" style="overflow: hidden;" (click)="onClickRating()">
-    <div style="width: 75px; color: gold;">
-        <span class="fa fa-star"></span>
-        <span class="fa fa-star"></span>
-        <span class="fa fa-star"></span>
-        <span class="fa fa-star"></span>
-        <span class="fa fa-star"></span>
+<div (click)="onClickRating()">
+    <div [style.width.px]="starWidth" style="overflow: hidden;">
+        <div style="width: 75px; color: gold;">
+            <span class="fa fa-star" id='star'></span>
+            <span class="fa fa-star" id='star'></span>
+            <span class="fa fa-star" id='star'></span>
+            <span class="fa fa-star" id='star'></span>
+            <span class="fa fa-star" id='star'></span>
+        </div>
     </div>
+    <span *ngIf="starHalf" class="fa fa-star-half-full" id='star' style="color: gold;"></span>
 </div>
