@@ -10,7 +10,7 @@ export class NameFilterPipe implements PipeTransform {
       return value;
     }
 
-    return value.toUpperCase().replace(/\s/gm, '-');
+    return value.toUpperCase().replace(/\s+/gm, '-');
   }
 
 }

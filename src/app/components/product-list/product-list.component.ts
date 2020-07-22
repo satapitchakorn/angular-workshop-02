@@ -8,19 +8,20 @@ import { Product } from '../../models/product';
 })
 export class ProductListComponent implements OnInit {
 
-  productList: Product[] = []
+  productList: Product[] = [];
+  name: string = '';
   constructor() { }
 
   ngOnInit(): void {
     this.generate();
   }
   generate(): void {
-    const p1 = new Product('C01', 'Product 01', 'www.google.com', 10.0, '*', true);
-    const p2 = new Product('C02', 'Product 01', 'www.google.com', 10.750, '**', true);
-    const p3 = new Product('C03', 'Product 01', 'www.google.com', 10001.0, '***', true);
-    const p4 = new Product('C04', 'Product 01', 'www.google.com', 10.0, '****', true);
-    const p5 = new Product('C05', 'Product 01', 'www.google.com', 10.0, '*****', true);
+    const p1 = new Product('C01', 'Product     01', 'www.google.com', 10.0, '*', true);
+    const p2 = new Product('C02', 'Product 02', 'www.google.com', 10.750, '**', true);
+    const p3 = new Product('C03', 'Product 03', 'www.google.com', 10001.0, '***', true);
+    const p4 = new Product('C04', 'Product 04', 'www.google.com', 10.0, '****', true);
+    const p5 = new Product('C05', 'Product 05', 'www.google.com', 10.0, '*****', false);
 
-    this.productList.push(p1, p2, p3, p4, p5)
+    this.productList.push(p1, p2, p3, p4, p5);
   }
 }

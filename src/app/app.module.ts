@@ -8,6 +8,7 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NameFilterPipe } from './pipes/name-filter.pipe';
+import { ProductFilterPipe } from './pipes/product-filter.pipe';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { NameFilterPipe } from './pipes/name-filter.pipe';
     AppComponent,
     LoginComponent,
     ProductListComponent,
-    NameFilterPipe
+    NameFilterPipe,
+    ProductFilterPipe
   ],
   imports: [
     BrowserModule,

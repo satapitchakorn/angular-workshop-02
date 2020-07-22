@@ -6,16 +6,12 @@
     <div class="row">
       <div class="col-md-2">Filter by:</div>
       <div class="col-md-4">
-        <select>
-          <option>Choosing</option>
-          <option>TODO</option>
-          <option>TODO</option>
-        </select>
+        <input class="form-control" [(ngModel)]='name' />
       </div>
     </div>
     <div class="row">
       <div class="col-md-6">
-        Filtered by ...
+        Filtered by {{name}}
       </div>
     </div>
     <div class="table-responsive">
@@ -36,12 +32,12 @@
         </thead>
         <tbody>
           <ng-container *ngIf="productList.length > 0">
-            <tr *ngFor="let product of productList">
+            <tr *ngFor="let product of productList | productFilter:name">
               <th><a href="https://{{ product.imageUrl }}" target="_blank">{{ product.imageUrl }}</a></th>
               <th>{{ product.code }}</th>
               <th>{{ product.name | nameFilter}}</th>
               <th>{{ product.price | number:'1.2' }}</th>
-              <th><a [ngStyle]="{'color': product.available? 'green':'red'}"></a>{{ product.available }}</th>
+              <th><a [ngStyle]="{'color': product.available? 'green':'red'}">{{ product.available }}</a></th>
               <th>{{ product.rating }}</th>
             </tr>
           </ng-container>
