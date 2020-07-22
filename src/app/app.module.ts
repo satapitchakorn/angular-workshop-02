@@ -13,6 +13,8 @@ import { TopNavComponent } from './layout/top-nav/top-nav.component';
 import { FooterComponent } from './layout/footer/footer.component';
 
 import { NgxLoadingModule } from 'ngx-loading';
+import { RatingComponent } from './components/rating/rating.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { NgxLoadingModule } from 'ngx-loading';
     NameFilterPipe,
     ProductFilterPipe,
     TopNavComponent,
-    FooterComponent
+    FooterComponent,
+    RatingComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +33,7 @@ import { NgxLoadingModule } from 'ngx-loading';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
 
     NgxLoadingModule.forRoot({})
   ],

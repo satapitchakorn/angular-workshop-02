@@ -44,7 +44,9 @@
               <td>{{ product.name | nameFilter}}</td>
               <td>{{ product.price | number:'1.2' }}</td>
               <td><a [ngStyle]="{'color': product.available? 'green':'red'}">{{ product.available }}</a></td>
-              <td>{{ product.rating }}</td>
+              <td>
+                <app-rating [rating]="product.rating" (ratingClicked)="onRatingClicked($event);"></app-rating>
+              </td>
             </tr>
           </ng-container>
         </tbody>
