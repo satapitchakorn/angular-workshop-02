@@ -58,7 +58,8 @@
             </div>
         </div>
         <div align="center">
-            <button class="btn btn-success" [disabled]='!productDetail.available'><i class="fa fa-cart-plus"> Add to
+            <button class="btn btn-success" [disabled]='!productDetail.available'
+                (click)="addToCart(productDetail.id)"><i class="fa fa-cart-plus"> Add to
                     cart</i></button>
         </div>
     </div>

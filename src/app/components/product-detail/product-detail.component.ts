@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductApiService } from 'src/app/services/product-api.service';
 import { Product } from 'src/app/models/product';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-product-detail',
@@ -16,8 +17,6 @@ export class ProductDetailComponent implements OnInit {
     if (this.router.getCurrentNavigation().extras.state) {
       this.productDetail = this.router.getCurrentNavigation().extras.state.data;
     }
-    console.log(this.productDetail);
-    
   }
 
   ngOnInit(): void {
@@ -30,5 +29,14 @@ export class ProductDetailComponent implements OnInit {
     this.api.getDetail(this.id).subscribe((product: Product) => {
       this.productDetail = product;
     });
+  }
+  addToCart(id: number) {
+    Swal.fire({
+      title: 'Success',
+      text: 'Added to cart',
+      icon: 'success',
+      showConfirmButton: false,
+      timer: 2000
+    })
   }
 }

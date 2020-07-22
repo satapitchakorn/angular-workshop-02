@@ -1,0 +1,7 @@
+version: "3.8"
+services:
+  web:
+    build: .
+    image: macpunjarat/workshop:10.0.0
+    ports:
+      - "9999:4000"
