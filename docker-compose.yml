@@ -4,4 +4,4 @@ services:
     build: .
     image: macpunjarat/workshop:10.0.0
     ports:
-      - "9999:4000"
+      - "9999:4200"
