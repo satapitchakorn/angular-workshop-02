@@ -9,8 +9,8 @@
     </div>
     <div class="card-body">
         <div align="center" style="border: 50px; border-color: black;">
-            <img src="https://th-live-01.slatic.net/original/795870113fb003d6e781310596480060.jpg" width="300em"
-                height="300em" [ngClass]="{'imgWB': !productDetail.available}" style="border: 1px solid #555;">
+            <img src={{productDetail.imageUrl}} width="300em" height="300em"
+                [ngClass]="{'imgWB': !productDetail.available}" style="border: 1px solid #555;">
 
         </div>
         <!-- <div align='center'>

@@ -42,7 +42,11 @@
           <ng-container *ngIf="productList.length > 0">
             <tr *ngFor="let product of productList | productFilter:name">
               <td>
-                <button class="btn btn-primary" (click)="openWindows(product.imageUrl);">View</button>
+
+                <div align="center" style="border: 50px; border-color: black;">
+                  <img src={{product.imageUrl}} width="100em" height="100em" [ngClass]="{'imgWB': !product.available}"
+                    style="border: 1px solid #555;">
+                </div>
               </td>
               <td [routerLink]="['/list',product.id]" [state]="{data:product}" class="click">{{ product.code }}</td>
               <td>{{ product.name | nameFilter}}</td>
